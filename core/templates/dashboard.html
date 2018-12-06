@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/static/css/dashboard.css">
+    <script type="text/javascript" src="/static/js/ws4redis.js"></script>
+    <script src="/static/js/dashboard.js"></script>
+    <script type="text/javascript">
+      const WEBSOCKET_URI = "{{WEBSOCKET_URI}}"
+      const WS4REDIS_HEARTBEAT = "{{WS4REDIS_HEARTBEAT}}"
+    </script>
+</head>
+<body>
+  <div class="container">
+    <div class="header">Job Description Manager</div>
+    <div class="data-body row">
+      <div class="col-sm-2 column left-navv">
+        <form onsubmit="return upload() ;">
+          <ul class="nav nav-tabs">
+            <li class="active"><a href="#tab_default_1" data-toggle="tab">WorkBook</a></li>
+            <li><input type="file" name="workbook" id="workbook" multiple required="required" /></li>
+            <li><button type="submit" class="btn btn-primary" id="form-btn">Upload</button></li>
+          </ul>
+        </form>
+      </div>
+      <div class="col-sm-10 column">
+        <div class="tab-content">
+          <div class="tab-pane active" id="tab_default_1">
+            <div class="row">
+              <div class="col-sm-12 details-header">Details Listing</div>
+            </div>
+            <div class="row" style="height: calc(100% - 110px);">
+              <div class="col-sm-2 mini-nav column">
+                <ul class="nav nav-tabs row-details">
+                  <li id="total_rows"><a>Total Rows : NA</a></li>
+                  <li id="rows_processed"><a>Rows Processed: NA</a></li>
+                  <li id="rows_ignored"><a>Rows Ignored: NA</a></li>
+                  <li id="jd_created"><a>Job Description Created: NA</a></li>
+                </ul>
+              </div>
+              <div class="col-sm-10 column" style="height: 100%;">
+                <div class="tab-content">
+                  <div class="tab-pane active" id="tab_default_3">
+                    <div class="row">
+                      <div class="col-sm-12 details-header">Progress<span class="error" id="error"></span></div>
+                    </div>
+                    <div class="row" style="height: calc(100% - 110px);">
+                      Progress Bar
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
